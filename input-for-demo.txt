@@ -1,0 +1,3 @@
+sqlite-utils
+pypy-rename-demo
+0.1

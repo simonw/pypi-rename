@@ -36,15 +36,14 @@ jobs:
     - name: Build demo from template
       run: |-
         cat main/input-for-demo.txt | cookiecutter main
-        cd && find .
     - name: Push to git
       env:
         PERSONAL_ACCESS_TOKEN_FOR_PUSH: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_PUSH }}
       run: |-
         # Move the .git folder across
-        mv pypi-rename-demo-current/.git pypi-rename-demo
+        mv ~/work/pypi-rename/pypi-rename/pypy-rename-demo-current/.git ~/work/pypi-rename/pypi-rename/pypy-rename-demo
         # Commit and push the changes
-        cd pypi-rename-demo
+        cd ~/work/pypi-rename/pypi-rename/pypy-rename-demo
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
         git add -A .

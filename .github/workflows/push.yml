@@ -50,7 +50,7 @@ jobs:
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
         git add -A .
-        git commit -m "Demo of click-app ${GITHUB_SHA}" || exit 0
+        git commit -m "Demo of pypi-rename ${GITHUB_SHA}" || exit 0
         git push -u origin main
     - name: Post commit comment
       run: |-

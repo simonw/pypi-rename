@@ -2,6 +2,18 @@
 
 Cookiecutter template for creating renamed PyPI packages
 
+## What is this for?
+
+If you want to rename a Python package that you have published on [PyPI](https://pypi.org/) you should follow [these steps](https://www.python.org/dev/peps/pep-0423/#how-to-rename-a-project):
+
+* Create a renamed version of the package
+* Publish it to PyPI under the new name
+* Now create a final release under the old name which does the following:
+  - Tells users about the name change
+  - Depends on the new name, so anyone who runs `pip install oldname` will get the new name as a dependency
+
+This cookiecutter template helps create that final release under the old name.
+
 ## Installation
 
 You'll need to have [cookiecutter](https://cookiecutter.readthedocs.io/) installed. I recommend pipx for this:

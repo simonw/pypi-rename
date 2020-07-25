@@ -41,11 +41,11 @@ jobs:
       env:
         PERSONAL_ACCESS_TOKEN_FOR_PUSH: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_PUSH }}
       run: |-
-        find /home/runner/work/pypi-rename/pypi-rename
+        ls -lah /home/runner/work/pypi-rename/pypi-rename/pypy-rename-demo
         # Move the .git folder across
-        mv /home/runner/work/pypi-rename/pypi-rename/pypi-rename-demo-current/.git /home/runner/work/pypi-rename/pypi-rename/pypi-rename-demo/.git
+        mv /home/runner/work/pypi-rename/pypi-rename/pypi-rename-demo-current/.git /home/runner/work/pypi-rename/pypi-rename/pypy-rename-demo
         # Commit and push the changes
-        cd /home/runner/work/pypi-rename/pypi-rename/pypi-rename-demo/
+        cd /home/runner/work/pypi-rename/pypi-rename/pypy-rename-demo
         git status
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"

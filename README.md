@@ -16,7 +16,7 @@ This cookiecutter template helps create that final release under the old name.
 
 ## Installation
 
-You'll need to have [cookiecutter](https://cookiecutter.readthedocs.io/) installed. I recommend pipx for this:
+You'll need to have [cookiecutter](https://cookiecutter.readthedocs.io/) installed. I recommend [pipx](https://pipxproject.github.io/pipx/) for this:
 
     pipx install cookiecutter
 

@@ -31,4 +31,35 @@ First, publish a version of your package under the NEW name.
 
 Now you can use the package created by this template as the last released version under the old name.
 
-This will show a README explaining that the module has been renamed, and will also ensure that anyone who runs `pip install my-old-package-name` will get the new package, since the new package is the only dependency for the old renamed package.
+This will display a README on PyPI explaining that the module has been renamed, and will also ensure that anyone who runs `pip install my-old-package-name` will get the new package, since the new package is the only dependency for the old renamed package.
+
+Here's an example run, including uploading the old-named package using `twine`:
+```
+$ cd /tmp
+$ cookiecutter gh:simonw/pypi-rename
+new_package_name []: datasette-insert 
+old_package_name []: datasette-insert-api
+old_package_new_version []: 0.5
+$ cd datasette-insert-api 
+$ ls
+README.md	setup.py
+$ python setup.py sdist
+running sdist
+running egg_info
+creating datasette_insert_api.egg-info
+writing datasette_insert_api.egg-info/PKG-INFO
+...
+Creating tar archive
+removing 'datasette-insert-api-0.5' (and everything under it)
+$ ls dist
+datasette-insert-api-0.5.tar.gz
+$ twine upload dist/datasette-insert-api-0.5.tar.gz
+Uploading distributions to https://upload.pypi.org/legacy/
+Enter your username: simonw
+Enter your password: 
+Uploading datasette-insert-api-0.5.tar.gz
+100%|███████████████████████████████████████| 3.90k/3.90k [00:01<00:00, 3.01kB/s]
+
+View at:
+https://pypi.org/project/datasette-insert-api/0.5/
+```

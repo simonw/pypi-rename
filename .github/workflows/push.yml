@@ -36,7 +36,6 @@ jobs:
     - name: Build demo from template
       run: |-
         cat main/input-for-demo.txt | cookiecutter main
-        find pypi-rename-demo
     - name: Push to git
       env:
         PERSONAL_ACCESS_TOKEN_FOR_PUSH: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_PUSH }}

@@ -54,7 +54,7 @@ jobs:
         git push -u origin main
     - name: Post commit comment
       run: |-
-        cd pypi-rename-demo
+        cd /home/runner/work/pypi-rename/pypi-rename/pypy-rename-demo
         export FULL_SHA=$(git rev-parse HEAD)
         export SHORT_SHA=${FULL_SHA::8}
         export NEWLINE=$'\n'

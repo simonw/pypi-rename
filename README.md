@@ -6,9 +6,9 @@ Cookiecutter template for creating renamed PyPI packages
 
 If you want to rename a Python package that you have published on [PyPI](https://pypi.org/) you should follow [these steps](https://www.python.org/dev/peps/pep-0423/#how-to-rename-a-project):
 
-* Create a renamed version of the package
-* Publish it to PyPI under the new name
-* Now create a final release under the old name which does the following:
+- Create a renamed version of the package
+- Publish it to PyPI under the new name
+- Now create a final release under the old name which does the following:
   - Tells users about the name change
   - Depends on the new name, so anyone who runs `pip install oldname` will get the new name as a dependency
 
@@ -28,6 +28,7 @@ Run `cookiecutter gh:simonw/pypi-rename` and then answer the prompts. Here's an 
 
     $ cookiecutter gh:simonw/pypi-rename
     new_package_name []: my-old-package-name
+    new_package_pypi [https://pypi.org/project/my-old-package-name]:
     old_package_name []: my-new-package-name
     old_package_new_version []: 0.2
 
@@ -46,15 +47,17 @@ Now you can use the package created by this template as the last released versio
 This will display a README on PyPI explaining that the module has been renamed, and will also ensure that anyone who runs `pip install my-old-package-name` will get the new package, since the new package is the only dependency for the old renamed package.
 
 Here's an example run, including uploading the old-named package using `twine`:
-```
+
+```bash
 $ cd /tmp
 $ cookiecutter gh:simonw/pypi-rename
-new_package_name []: datasette-insert 
+new_package_name []: datasette-insert
+new_package_pypi [https://pypi.org/project/datasette-insert]:
 old_package_name []: datasette-insert-api
 old_package_new_version []: 0.5
-$ cd datasette-insert-api 
+$ cd datasette-insert-api
 $ ls
-README.md	setup.py
+README.md setup.py
 $ python setup.py sdist
 running sdist
 running egg_info
@@ -68,7 +71,7 @@ datasette-insert-api-0.5.tar.gz
 $ twine upload dist/datasette-insert-api-0.5.tar.gz
 Uploading distributions to https://upload.pypi.org/legacy/
 Enter your username: simonw
-Enter your password: 
+Enter your password:
 Uploading datasette-insert-api-0.5.tar.gz
 100%|███████████████████████████████████████| 3.90k/3.90k [00:01<00:00, 3.01kB/s]
 

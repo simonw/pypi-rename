@@ -2,4 +2,4 @@
 
 This package has been renamed. Use `pip install {{ cookiecutter.new_package_name }}` instead.
 
-New package: https://pypi.org/project/{{ cookiecutter.new_package_name }}/
+New package: <{{ cookiecutter.new_package_pypi }}>

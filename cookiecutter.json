@@ -1,5 +1,6 @@
 {
   "new_package_name": "",
+  "new_package_pypi": "https://pypi.org/project/{{ cookiecutter.new_package_name }}/",
   "old_package_name": "",
   "old_package_new_version": ""
 }

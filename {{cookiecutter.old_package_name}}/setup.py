@@ -20,4 +20,5 @@ setup(
     version=VERSION,
     install_requires=["{{ cookiecutter.new_package_name }}"],
     classifiers=["Development Status :: 7 - Inactive"],
+    project_urls={"New Package": "{{ cookiecutter.new_package_pypi }}"},
 )

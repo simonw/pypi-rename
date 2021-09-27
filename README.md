@@ -27,8 +27,8 @@ Regular `pip` will work OK too.
 Run `cookiecutter gh:simonw/pypi-rename` and then answer the prompts. Here's an example run:
 
     $ cookiecutter gh:simonw/pypi-rename
-    new_package_name []: my-old-package-name
-    old_package_name []: my-new-package-name
+    new_package_name []: my-new-package-name
+    old_package_name []: my-old-package-name
     old_package_new_version []: 0.2
 
 For `old_package_new_version` you should enter a version that is higher than the most recent version that was published for the package which you are renaming.

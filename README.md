@@ -45,33 +45,31 @@ Now you can use the package created by this template as the last released versio
 
 This will display a README on PyPI explaining that the module has been renamed, and will also ensure that anyone who runs `pip install my-old-package-name` will get the new package, since the new package is the only dependency for the old renamed package.
 
-Here's an example run, including uploading the old-named package using `twine`:
-```
-$ cd /tmp
-$ cookiecutter gh:simonw/pypi-rename
-new_package_name []: datasette-insert 
-old_package_name []: datasette-insert-api
-old_package_new_version []: 0.5
-$ cd datasette-insert-api 
-$ ls
-README.md	setup.py
-$ python setup.py sdist
-running sdist
-running egg_info
-creating datasette_insert_api.egg-info
-writing datasette_insert_api.egg-info/PKG-INFO
+Here's an example run, first creating the package using `cookiecutter` and `python -m build`:
+```bash
+% cookiecutter gh:simonw/pypi-rename
+  [1/3] new_package_name (): click-default-group
+  [2/3] old_package_name (): click-default-group-wheel
+  [3/3] old_package_new_version (): 1.2.3
+% cd click-default-group-wheel
+% python -m build
+* Creating virtualenv isolated environment...
+* Installing packages in isolated environment... (setuptools >= 40.8.0, wheel)
+* Getting build dependencies for sdist...
 ...
-Creating tar archive
-removing 'datasette-insert-api-0.5' (and everything under it)
-$ ls dist
-datasette-insert-api-0.5.tar.gz
-$ twine upload dist/datasette-insert-api-0.5.tar.gz
+Successfully built click-default-group-wheel-1.2.3.tar.gz and click_default_group_wheel-1.2.3-py3-none-any.whl
+```
+And then uploading it to PyPI with `twine` - using a [PyPI API token](https://pypi.org/help/#apitoken) (pasted in as the password):
+```bash
+% twine upload dist/click*
 Uploading distributions to https://upload.pypi.org/legacy/
-Enter your username: simonw
+Enter your username: __token__
 Enter your password: 
-Uploading datasette-insert-api-0.5.tar.gz
-100%|███████████████████████████████████████| 3.90k/3.90k [00:01<00:00, 3.01kB/s]
+Uploading click_default_group_wheel-1.2.3-py3-none-any.whl
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 kB • 00:00 • ?
+Uploading click-default-group-wheel-1.2.3.tar.gz
+100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 kB • 00:00 • ?
 
 View at:
-https://pypi.org/project/datasette-insert-api/0.5/
+https://pypi.org/project/click-default-group-wheel/1.2.3/
 ```
